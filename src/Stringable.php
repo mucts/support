@@ -201,7 +201,7 @@ class Stringable
      */
     public function explode($delimiter, $limit = PHP_INT_MAX)
     {
-        return collect(explode($delimiter, $this->value, $limit));
+        return new Collection(explode($delimiter, $this->value, $limit));
     }
 
     /**
@@ -327,10 +327,10 @@ class Stringable
         preg_match_all($pattern, $this->value, $matches);
 
         if (empty($matches[0])) {
-            return collect();
+            return new Collection();
         }
 
-        return collect($matches[1] ?? $matches[0]);
+        return new Collection($matches[1] ?? $matches[0]);
     }
 
     /**
