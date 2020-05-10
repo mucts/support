@@ -433,11 +433,11 @@ class Collection implements ArrayAccess, Enumerable
         foreach (explode('.', $key) as $segment) {
             if ($config instanceof Collection && $config->offsetExists($segment)) {
                 $config = $config->items[$segment];
-                break;
+                continue;
             }
             if (is_array($config) && array_key_exists($segment, $config)) {
                 $config = $config[$segment];
-                break;
+                continue;
             }
             return value($default);
         }
