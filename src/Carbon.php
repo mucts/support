@@ -22,6 +22,6 @@ class Carbon extends CarbonBase
      */
     public function getTimestampMs()
     {
-        return intval($this->timestamp . str_pad(substr($this->microsecond, 0, 3), 3, '0', STR_PAD_RIGHT));
+        return $this->timestamp * 1000 + $this->millisecond;
     }
 }
