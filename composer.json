@@ -9,7 +9,8 @@
         "symfony/var-dumper": "^5.0",
         "ramsey/uuid": "^4.0",
         "doctrine/inflector": "^1.3",
-        "voku/portable-ascii": "^1.4"
+        "voku/portable-ascii": "^1.4",
+        "nesbot/carbon": "^2.33"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.1"
