@@ -425,24 +425,7 @@ class Collection implements ArrayAccess, Enumerable
         if ($this->offsetExists($key)) {
             return $this->items[$key];
         }
-
-        if (false === strpos($key, '.')) {
-            return value($default);
-        }
-        $config = $this;
-        foreach (explode('.', $key) as $segment) {
-            if ($config instanceof Collection && $config->offsetExists($segment)) {
-                $config = $config->items[$segment];
-                continue;
-            }
-            if (is_array($config) && array_key_exists($segment, $config)) {
-                $config = $config[$segment];
-                continue;
-            }
-            return value($default);
-        }
-
-        return value($config);
+        return Arr::get($this->items,$key,$default);
     }
 
     /**
